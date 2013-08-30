@@ -1,0 +1,34 @@
+<?php
+
+return array(
+    'maintenance' => array(
+        /**
+         * Set to true, to manually define the Website is under maintenance
+         *
+         * @var bool
+         */
+        'manuelMaintenance' => false,
+
+        /**
+         * An Array of Closures and/or MaintenanceProviderIntace which check different sources,
+		 * to determine if the System ist under maintenance.
+         *
+         * @var Closure|\Maintenance\Provider\MaintenanceProviderInterface
+         */
+        'provider' => array(),
+
+        /**
+         * Route or file to redirect the user to an Error page
+         *
+         * @var string
+         */
+        'redirect' => 'offline.html',
+
+        /**
+         * What type of redirect?
+         *
+         * @var string
+         */
+        'redirectType' => 'file',
+    ),
+);
