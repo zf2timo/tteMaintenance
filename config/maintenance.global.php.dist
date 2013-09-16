@@ -11,7 +11,7 @@ return array(
 
         /**
          * An Array of Closures and/or MaintenanceProviderIntace which check different sources,
-		 * to determine if the System ist under maintenance.
+         * to determine if the System ist under maintenance.
          *
          * @var Closure|\Maintenance\Provider\MaintenanceProviderInterface
          */
@@ -30,5 +30,26 @@ return array(
          * @var string
          */
         'redirectType' => 'file',
+
+        /**
+         * Configuration for TimeSpanProvider
+         *
+         * @var array
+         */
+        'timeSpan' => array(
+            /**
+             * Defines the begin of the daley maintenance
+             *
+             * @var Int
+             */
+            'start' => 23,
+
+            /**
+             * Defines the end of the daley maintenance
+             *
+             * @var Int
+             */
+            'end' => 5.
+        ),
     ),
 );

@@ -28,7 +28,7 @@ abstract class AbstractProvider extends AbstractListenerAggregate implements Mai
      */
     public function attach(EventManagerInterface $events)
     {
-        $this->listeners[] = $events->attach(MvcEvent::EVENT_BOOTSTRAP, array($this, 'onBootstrap'), 100);
+        $this->listeners[] = $events->attach(MvcEvent::EVENT_DISPATCH, array($this, 'onBootstrap'), 100);
     }
 
     /**
@@ -45,12 +45,12 @@ abstract class AbstractProvider extends AbstractListenerAggregate implements Mai
         $moduleOptions = $serviceLocator->get('Maintenance\Options\ModuleOptionsFactory');
 
         if ($moduleOptions->getRedirectType() == self::REDIRECT_TYPE_FILE) {
-            $httpResponse = new Response();
-            $httpResponse->getHeaders()->addHeader('Location', $moduleOptions->getRedirect());
+            $httpResponse = $event->getResponse();
+            $httpResponse->getHeaders()->addHeaderLine('Location', $moduleOptions->getRedirect());
             $httpResponse->setStatusCode(Response::STATUS_CODE_503);
 
-            $event->setResponse($httpResponse);
-            $event->stopPropagation(true);
+            $httpResponse->sendHeaders();
+            return $httpResponse;
         }
 
     }

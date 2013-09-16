@@ -1,1 +1,1 @@
-Sample, skeleton module for use with the ZF2 MVC layer.
+Module for ZF2 to Maintenance a Project

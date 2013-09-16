@@ -50,47 +50,21 @@ class Module implements AutoloaderProviderInterface, BootstrapListenerInterface
     {
         /* @var $app \Zend\Mvc\ApplicationInterface */
         $app             = $e->getTarget();
+        $serviceLocator = $app->getServiceManager();
 
         $eventManager        = $app->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
 
-        $moduleOptions      = $app->getServiceManager()->get('Maintenance\Options\ModuleOptionsFactory');
+        $moduleOptions      = $serviceLocator->get('Maintenance\Options\ModuleOptionsFactory');
         $provider           = $moduleOptions->getMaintenanceProvider();
 
-        foreach ($provider as $instance) {
-           $eventManager->attach($instance);
-       }
-
-
-//        $eventManager->attach('loadModules.post', function(EventInterface $e) {
-//            /** @var \Zend\Mvc\ApplicationInterface $app */
-//            $app = $e->getTarget();
-//            $serviceManager = $app->getServiceManager();
-//
-//            /** @var ModuleOptionsInterface $options */
-//            $options = $serviceManager->get('Maintenance\Options\ModuleOptionsFactory');
-//            $provider = $options->getMaintenanceProvider();
-//
-//            $isMaintenance = false;
-//            if ($provider instanceof \Closure) {
-//                $isMaintenance = (bool)$provider();
-//            } elseif (is_string($provider)) {
-//                $provider = $serviceManager->get($provider);
-//                if ($provider instanceof MaintenanceProviderInterface) {
-//                    $isMaintenance = $provider->isMaintenance();
-//                }
-//            }
-//            else {
-//                throw new MisconfigurationException('error');
-//            }
-//
-//            if ($isMaintenance) {
-//                $e->stopPropagation(true);
-//                $response = new HttpResponse();
-//
-//            }
-//
-//        }, 100);
+        if (count($provider) > 0) {
+            foreach ($provider as $instance) {
+                if ($serviceLocator->has($instance)) {
+                    $eventManager->attach($serviceLocator->get($instance));
+                }
+            }
+        }
     }
 }

@@ -13,6 +13,14 @@ use Zend\Stdlib\AbstractOptions;
 class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface
 {
     /**
+     * We use the __ prefix to avoid collisions with properties in
+     * user-implementations.
+     *
+     * @var bool
+     */
+    protected $__strictMode__ = false;
+
+    /**
      * @param string $maintenanceProvider
      */
     public function setMaintenanceProvider($maintenanceProvider)
