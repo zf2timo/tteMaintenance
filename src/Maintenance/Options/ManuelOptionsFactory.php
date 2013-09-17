@@ -3,17 +3,16 @@
 
 namespace Maintenance\Options;
 
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
-class ModuleOptionsFactory extends AbstractOptionFactory
+class ManuelOptionsFactory extends AbstractOptionFactory
 {
+
     /**
      * @return string
      */
     public function getClass()
     {
-        return 'Maintenance\Options\ModuleOptions';
+        return 'Maintenance\Options\ManuelOptions';
     }
 
     /**
@@ -21,6 +20,6 @@ class ModuleOptionsFactory extends AbstractOptionFactory
      */
     public function getConfigKey()
     {
-        return 'global';
+        return 'manuel';
     }
 }

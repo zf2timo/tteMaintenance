@@ -28,11 +28,12 @@ abstract class AbstractProvider extends AbstractListenerAggregate implements Mai
      */
     public function attach(EventManagerInterface $events)
     {
-        $this->listeners[] = $events->attach(MvcEvent::EVENT_DISPATCH, array($this, 'onBootstrap'), 100);
+        $this->listeners[] = $events->attach(MvcEvent::EVENT_ROUTE, array($this, 'onBootstrap'), -10000);
     }
 
     /**
      * @param MvcEvent $event
+     * @return \Zend\Stdlib\ResponseInterface
      */
     public function onBootstrap(MvcEvent $event)
     {

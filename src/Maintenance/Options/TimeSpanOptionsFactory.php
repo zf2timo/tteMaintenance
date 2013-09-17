@@ -7,19 +7,22 @@ namespace Maintenance\Options;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class TimeSpanOptionsFactory implements  FactoryInterface
+class TimeSpanOptionsFactory extends AbstractOptionFactory
 {
 
     /**
-     * Create service
-     *
-     * @param ServiceLocatorInterface $serviceLocator
-     * @return mixed
+     * @return string
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function getClass()
     {
-        $config = $serviceLocator->get('config');
+        return 'Maintenance\Options\TimeSpanOptions';
+    }
 
-        return new TimeSpanOptions($config['maintenance']['timeSpan']);
+    /**
+     * @return string
+     */
+    public function getConfigKey()
+    {
+        return 'timeSpan';
     }
 }
