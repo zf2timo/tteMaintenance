@@ -33,7 +33,7 @@ abstract class AbstractProvider extends AbstractListenerAggregate implements Mai
 
     /**
      * @param MvcEvent $event
-     * @return \Zend\Stdlib\ResponseInterface
+     * @return \Zend\Stdlib\ResponseInterface|void
      */
     public function onBootstrap(MvcEvent $event)
     {
@@ -45,15 +45,19 @@ abstract class AbstractProvider extends AbstractListenerAggregate implements Mai
         /** @var ModuleOptionsInterface $moduleOptions */
         $moduleOptions = $serviceLocator->get('Maintenance\Options\ModuleOptionsFactory');
 
-        if ($moduleOptions->getRedirectType() == self::REDIRECT_TYPE_FILE) {
-            $httpResponse = $event->getResponse();
-            $httpResponse->getHeaders()->addHeaderLine('Location', $moduleOptions->getRedirect());
-            $httpResponse->setStatusCode(Response::STATUS_CODE_503);
 
-            $httpResponse->sendHeaders();
-            return $httpResponse;
+        if ($moduleOptions->getRedirectType() == self::REDIRECT_TYPE_FILE) {
+            $redirectLink = $moduleOptions->getRedirect();
+        } elseif ($moduleOptions->getRedirectType() == self::REDIRECT_TYPE_ROUTE) {
+            $router = $serviceLocator->get('httpRouter');
+            $redirectLink = $router->assemble(array(), array('name' => $moduleOptions->getRedirect()));
         }
 
+        $httpResponse = $event->getResponse();
+        $httpResponse->setStatusCode(Response::STATUS_CODE_302);
+        $httpResponse->getHeaders()->addHeaderLine('Location', $redirectLink);
+        $httpResponse->sendHeaders();
+        return $httpResponse;
     }
 
     /**
