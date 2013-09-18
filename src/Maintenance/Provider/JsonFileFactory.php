@@ -23,9 +23,6 @@ class JsonFileFactory implements FactoryInterface
         /** @var JsonFileOptionsInterface $jsonFileOptions */
         $jsonFileOptions = $serviceLocator->get('Maintenance\Options\JsonFileOptionsFactory');
 
-        return new JsonFile(
-            $jsonFileOptions->getTargetFile(),
-            $jsonFileOptions->getPropertyName()
-        );
+        return new JsonFile($jsonFileOptions);
     }
 }

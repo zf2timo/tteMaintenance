@@ -4,7 +4,7 @@
 namespace Maintenance\Options;
 
 
-class JsonFileFactory extends AbstractOptionFactory
+class JsonFileOptionsFactory extends AbstractOptionFactory
 {
 
     /**

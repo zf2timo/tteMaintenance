@@ -2,10 +2,15 @@
 
 return array(
     'factories' => array(
-        'Maintenance\Options\ModuleOptionsFactory' => 'Maintenance\Options\ModuleOptionsFactory',
-        'Maintenance\Options\TimeSpanOptionsFactory' => 'Maintenance\Options\TimeSpanOptionsFactory',
-        'Maintenance\Options\ManuelOptionsFactory' => 'Maintenance\Options\ManuelOptionsFactory',
-        'Maintenance\Provider\TimeSpanFactory' => 'Maintenance\Provider\TimeSpanFactory',
-        'Maintenance\Provider\ManuelFactory' => 'Maintenance\Provider\ManuelFactory',
+        // Option Factories
+        'tteMaintenance\Options\ModuleOptionsFactory' => 'tteMaintenance\Options\ModuleOptionsFactory',
+        'tteMaintenance\Options\TimeSpanOptionsFactory' => 'tteMaintenance\Options\TimeSpanOptionsFactory',
+        'tteMaintenance\Options\ManuelOptionsFactory' => 'tteMaintenance\Options\ManuelOptionsFactory',
+        'tteMaintenance\Options\JsonFileOptionsFactory' => 'tteMaintenance\Options\JsonFileOptionsFactory',
+
+        // Provider Factories
+        'tteMaintenance\Provider\TimeSpanFactory' => 'tteMaintenance\Provider\TimeSpanFactory',
+        'tteMaintenance\Provider\ManuelFactory' => 'tteMaintenance\Provider\ManuelFactory',
+        'tteMaintenance\Provider\JsonFileFactory' => 'tteMaintenance\Provider\JsonFileFactory',
     ),
 );

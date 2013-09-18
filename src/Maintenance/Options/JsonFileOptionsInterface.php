@@ -13,4 +13,8 @@ interface JsonFileOptionsInterface
     public function getPropertyName();
 
     public function setPropertyName($propertyName);
+
+    public function getStrictMode();
+
+    public function setStrictMode($isStrictMode);
 }

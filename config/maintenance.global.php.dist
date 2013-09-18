@@ -3,33 +3,32 @@
 return array(
     'maintenance' => array(
         /**
-         * Set to true, to manually define the Website is under maintenance
-         *
-         * @var bool
+         * Global Configuration for tteMaintenance Module
          */
-        'manuelMaintenance' => false,
+        'global' => array(
+            /**
+             * Closure or MaintenanceProviderInterface to dynamically define a maintenance
+             *
+             * @var Closure|\tteMaintenance\Provider\MaintenanceProviderInterface
+             */
+            'maintenanceProvider' => array(
+                // Add here provider, which define the system state.
+            ),
 
-        /**
-         * An Array of Closures and/or MaintenanceProviderIntace which check different sources,
-         * to determine if the System ist under maintenance.
-         *
-         * @var Closure|\Maintenance\Provider\MaintenanceProviderInterface
-         */
-        'provider' => array(),
+            /**
+             * Route or file to redirect the user to an Error page
+             *
+             * @var string
+             */
+            'redirect' => 'offline.html',
 
-        /**
-         * Route or file to redirect the user to an Error page
-         *
-         * @var string
-         */
-        'redirect' => 'offline.html',
-
-        /**
-         * What type of redirect?
-         *
-         * @var string
-         */
-        'redirectType' => 'file',
+            /**
+             * What type of redirect?
+             *
+             * @var string
+             */
+            'redirectType' => \tteMaintenance\Provider\AbstractProvider::REDIRECT_TYPE_FILE,
+        ),
 
         /**
          * Configuration for TimeSpanProvider
@@ -42,14 +41,53 @@ return array(
              *
              * @var Int
              */
-            'start' => 23,
+            'start' => 0,
 
             /**
              * Defines the end of the daley maintenance
              *
              * @var Int
              */
-            'end' => 5.
+            'end' => 0,
+        ),
+
+        /**
+         * Configuration to define manuel when the system under maintenance
+         */
+        'manuel' => array(
+            /**
+             * Manuel define, when the system is under maintenance
+             *
+             * @var bool
+             */
+            'isMaintenance' => false,
+        ),
+        /**
+         *
+         */
+        'jsonFile' => array(
+
+            /**
+             * If the "StrictMode" is disabled when an error occurs the system will be not go into the maintenance mode.
+             * An error may be that the file or the property is not found.
+             *
+             * @var bool
+             */
+            'strictMode' => true,
+
+            /**
+             * Json File with information if the system is under maintenance
+             *
+             * @var string
+             */
+            'targetFile' => '',
+
+            /**
+             * Where the Provider looks to determine if the Value is true or false
+             *
+             * @var string
+             *             */
+            'propertyName' => '',
         ),
     ),
 );

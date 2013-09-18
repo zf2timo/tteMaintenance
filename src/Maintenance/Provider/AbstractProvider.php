@@ -7,7 +7,7 @@ namespace Maintenance\Provider;
 use Maintenance\Options\ModuleOptionsInterface;
 use Zend\EventManager\AbstractListenerAggregate;
 use Zend\EventManager\EventManagerInterface;
-use Zend\Http\Response;
+use Zend\Http\PhpEnvironment\Response;
 use Zend\Mvc\MvcEvent;
 
 abstract class AbstractProvider extends AbstractListenerAggregate implements MaintenanceProviderInterface
@@ -54,10 +54,14 @@ abstract class AbstractProvider extends AbstractListenerAggregate implements Mai
         }
 
         $httpResponse = $event->getResponse();
-        $httpResponse->setStatusCode(Response::STATUS_CODE_302);
-        $httpResponse->getHeaders()->addHeaderLine('Location', $redirectLink);
-        $httpResponse->sendHeaders();
-        return $httpResponse;
+        if ($httpResponse instanceof Response) {
+            $httpResponse->setStatusCode(Response::STATUS_CODE_302);
+            $httpResponse->getHeaders()->addHeaderLine('Location', $redirectLink);
+            return $httpResponse;
+        }
+
+        // @todo at the moment the module only supports HTTP-Request
+        return;
     }
 
     /**

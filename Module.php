@@ -7,11 +7,11 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Maintenance;
+namespace tteMaintenance;
 
-use Maintenance\Exception\MisconfigurationException;
-use Maintenance\Options\ModuleOptionsInterface;
-use Maintenance\Provider\MaintenanceProviderInterface;
+use tteMaintenance\Exception\MisconfigurationException;
+use tteMaintenance\Options\ModuleOptionsInterface;
+use tteMaintenance\Provider\MaintenanceProviderInterface;
 use Zend\EventManager\EventInterface;
 use Zend\Feed\PubSubHubbub\HttpResponse;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
@@ -56,7 +56,7 @@ class Module implements AutoloaderProviderInterface, BootstrapListenerInterface
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
 
-        $moduleOptions      = $serviceLocator->get('Maintenance\Options\ModuleOptionsFactory');
+        $moduleOptions      = $serviceLocator->get('tteMaintenance\Options\ModuleOptionsFactory');
         $provider           = $moduleOptions->getMaintenanceProvider();
 
         if (count($provider) > 0) {

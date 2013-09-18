@@ -2,12 +2,12 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'Maintenance\Controller\Skeleton' => 'Maintenance\Controller\SkeletonController',
+            'tteMaintenance\Controller\Skeleton' => 'tteMaintenance\Controller\SkeletonController',
         ),
     ),
     'router' => array(
         'routes' => array(
-            'maintenance' => array(
+            'tteMaintenance' => array(
                 'type'    => 'Literal',
                 'options' => array(
                     // Change this to something specific to your module
