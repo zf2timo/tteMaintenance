@@ -1,0 +1,21 @@
+{
+    "name": "zf2timo/tteMaintenance",
+    "description": "A Module to move a Website to Maintenance Mode",
+    "type": "module",
+    "keywords": [
+        "zf2"
+    ],
+    "homepage": "https://github.com/zf2timo/tteMaintenance",
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "tteMaintenance": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
