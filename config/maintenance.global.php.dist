@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'maintenance' => array(
+    'tteMaintenance' => array(
         /**
          * Global Configuration for tteMaintenance Module
          */
@@ -13,6 +13,10 @@ return array(
              */
             'maintenanceProvider' => array(
                 // Add here provider, which define the system state.
+
+        //      'tteMaintenance\Provider\TimeSpanFactory',
+        //      'tteMaintenance\Provider\ManuelFactory',
+        //      'tteMaintenance\Provider\JsonFileFactory',
             ),
 
             /**
