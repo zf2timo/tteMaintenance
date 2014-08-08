@@ -2,6 +2,7 @@
     "name": "zf2timo/tte-maintenance",
     "description": "A Module to move a Website to Maintenance Mode",
     "type": "module",
+    "license": "BSD-3-Clause",
     "keywords": [
         "zf2"
     ],
