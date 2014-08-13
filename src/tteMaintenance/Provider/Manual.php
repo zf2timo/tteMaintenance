@@ -21,7 +21,7 @@ class Manual extends  AbstractProvider
      */
     public function __construct($isMaintenance)
     {
-        if (!is_bool($isMaintenance) || !($isMaintenance instanceof ManualOptionsInterface)) {
+        if (!is_bool($isMaintenance) && !($isMaintenance instanceof ManualOptionsInterface)) {
             throw new InvalidArgumentException(sprintf(
                 'Invalid Argument was given. Expect bool or ManualOptionsInterface. %s was given.',
                 is_object($isMaintenance) ? get_class($isMaintenance) : gettype($isMaintenance)
