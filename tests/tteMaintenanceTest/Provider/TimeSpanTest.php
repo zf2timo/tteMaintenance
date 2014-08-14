@@ -21,17 +21,5 @@ class TimeSpanTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(false, $provider->isMaintenance());
     }
 
-    /**
-     * @covers tteMaintenance\Provider\TimeSpan::isMaintenance
-     */
-    public function testIsMaintenanceWithString()
-    {
-
-        $provider = new TimeSpan('22', '23');
-        $this->assertSame(true, $provider->isMaintenance());
-
-        $provider = new TimeSpan('22', '23');
-        $this->assertSame(true, $provider->isMaintenance());
-    }
 }
  
