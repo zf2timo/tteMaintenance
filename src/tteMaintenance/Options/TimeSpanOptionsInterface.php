@@ -4,22 +4,22 @@ namespace tteMaintenance\Options;
 interface TimeSpanOptionsInterface
 {
     /**
-     * @param Int $start
+     * @param \DateTime $start
      */
-    public function setStart($start);
+    public function setStart(\DateTime $start);
 
     /**
-     * @param Int $end
+     * @param \DateTime $end
      */
-    public function setEnd($end);
+    public function setEnd(\DateTime $end);
 
     /**
-     * @return Int
+     * @return \DateTime
      */
     public function getEnd();
 
     /**
-     * @return Int
+     * @return \DateTime
      */
     public function getStart();
 }

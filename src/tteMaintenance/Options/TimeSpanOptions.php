@@ -9,25 +9,25 @@ use Zend\Stdlib\AbstractOptions;
 class TimeSpanOptions extends AbstractOptions implements TimeSpanOptionsInterface
 {
     /**
-     * @var Int
+     * @var \DateTime
      */
     protected $start;
 
     /**
-     * @var Int
+     * @var \DateTime
      */
     protected $end;
 
     /**
-     * @param Int $start
+     * @param \DateTime $start
      */
-    public function setStart($start)
+    public function setStart(\DateTime $start)
     {
-        $this->start = (int)$start;
+        $this->start = $start;
     }
 
     /**
-     * @return Int
+     * @return \DateTime
      */
     public function getStart()
     {
@@ -35,15 +35,15 @@ class TimeSpanOptions extends AbstractOptions implements TimeSpanOptionsInterfac
     }
 
     /**
-     * @param Int $end
+     * @param \DateTime $end
      */
-    public function setEnd($end)
+    public function setEnd(\DateTime $end)
     {
-        $this->end = (int)$end;
+        $this->end = $end;
     }
 
     /**
-     * @return Int
+     * @return \DateTime
      */
     public function getEnd()
     {
