@@ -72,5 +72,27 @@ class ManualTest extends \PHPUnit_Framework_TestCase
         $provider = new Manual(false);
         $this->assertSame(false, $provider->getIsMaintenance());
     }
+
+    /**
+     * @covers tteMaintenance\Provider\Manual::__construct
+     */
+    public function testConstructorException()
+    {
+        $this->setExpectedException('\tteMaintenance\Exception\InvalidArgumentException');
+
+        $provider = new Manual(1);
+    }
+
+    /**
+     * @covers tteMaintenance\Provider\Manual::setIsMaintenance
+     * @covers tteMaintenance\Provider\Manual::getIsMaintenance
+     */
+    public function testSetterConversion()
+    {
+        $provider = new Manual(false);
+        $provider->setIsMaintenance(1);
+
+        $this->assertSame(true, $provider->getIsMaintenance());
+    }
 }
  
