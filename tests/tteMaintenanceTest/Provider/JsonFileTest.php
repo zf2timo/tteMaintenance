@@ -133,5 +133,24 @@ class JsonFileTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame(false, $provider->isMaintenance());
     }
+
+    /**
+     * @covers tteMaintenance\Provider\JsonFile::__construct
+     * @covers tteMaintenance\Provider\JsonFile::setOptions
+     * @covers tteMaintenance\Provider\JsonFile::getOptions
+     */
+    public function testConstructorSetsOptions()
+    {
+        $options = new JsonFileOptions();
+
+        $provider = new JsonFile($options);
+        $this->assertSame($options, $provider->getOptions());
+
+        $newOptions = new JsonFileOptions();
+        $newOptions->setStrictMode(true);
+        $newOptions->setTargetFile('test.json');
+        $provider->setOptions($newOptions);
+        $this->assertSame($newOptions, $provider->getOptions());
+    }
 }
  
