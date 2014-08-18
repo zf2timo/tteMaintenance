@@ -1,8 +1,6 @@
 <?php
 
-
 namespace tteMaintenance\Provider;
-
 
 use tteMaintenance\Options\ModuleOptionsInterface;
 use Zend\EventManager\AbstractListenerAggregate;
