@@ -29,19 +29,19 @@ class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface
     }
 
     /**
-     * @param boolean $manuelMaintenance
+     * @param bool $manualMaintenance
      */
-    public function setManuelMaintenance($manuelMaintenance)
+    public function setManualMaintenance($manualMaintenance)
     {
-        $this->manuelMaintenance = $manuelMaintenance;
+        $this->manualMaintenance = $manualMaintenance;
     }
 
     /**
      * @return boolean
      */
-    public function getManuelMaintenance()
+    public function getManualMaintenance()
     {
-        return $this->manuelMaintenance;
+        return $this->manualMaintenance;
     }
 
     /**
@@ -79,7 +79,7 @@ class ModuleOptions extends AbstractOptions implements ModuleOptionsInterface
     /**
      * @var bool
      */
-    protected $manuelMaintenance;
+    protected $manualMaintenance;
 
     /**
      * @var string

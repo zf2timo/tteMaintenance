@@ -26,7 +26,7 @@ interface ModuleOptionsInterface
     /**
      * @return boolean
      */
-    public function getManuelMaintenance();
+    public function getManualMaintenance();
 
     /**
      * @return string
@@ -44,7 +44,7 @@ interface ModuleOptionsInterface
     public function setRedirectType($redirectType);
 
     /**
-     * @param boolean $manuelMaintenance
+     * @param bool $manualMaintenance
      */
-    public function setManuelMaintenance($manuelMaintenance);
+    public function setManualMaintenance($manualMaintenance);
 }

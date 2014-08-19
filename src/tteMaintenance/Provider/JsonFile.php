@@ -35,7 +35,7 @@ class JsonFile extends AbstractProvider
             !is_file($this->getOptions()->getTargetFile())) {
             if ($this->getOptions()->getStrictMode()) {
                 throw new FileNotException(sprintf(
-                    'The file "%s" was\'t found or isn\'t readable.',
+                    'The file "%s" wasn\'t found or isn\'t readable.',
                     $this->getOptions()->getTargetFile()
                 ));
             } else {
@@ -51,7 +51,7 @@ class JsonFile extends AbstractProvider
             !isset($arrayContent[$this->getOptions()->getPropertyName()])) {
             if ($this->getOptions()->getStrictMode()) {
                 throw new InvalidFileException(sprintf(
-                    'Content was\'t valid Json or Property "%s" wasn\'t set.',
+                    'Content wasn\'t valid Json or Property "%s" isn\'t set.',
                     $this->getOptions()->getPropertyName()
                 ));
             } else {
