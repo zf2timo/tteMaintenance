@@ -72,7 +72,5 @@ class JsonFileOptionsTest extends \PHPUnit_Framework_TestCase
         $this->options->setStrictMode(true);
         $this->assertTrue($this->options->getStrictMode());
     }
-
-
 }
  
