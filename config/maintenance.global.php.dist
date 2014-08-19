@@ -15,7 +15,7 @@ return array(
                 // Add here provider, which define the system state.
 
         //      'tteMaintenance\Provider\TimeSpanFactory',
-        //      'tteMaintenance\Provider\ManuelFactory',
+        //      'tteMaintenance\Provider\ManualFactory',
         //      'tteMaintenance\Provider\JsonFileFactory',
             ),
 
@@ -56,11 +56,11 @@ return array(
         ),
 
         /**
-         * Configuration to define manuel when the system under maintenance
+         * Configuration to define manually when the system under maintenance
          */
-        'manuel' => array(
+        'manual' => array(
             /**
-             * Manuel define, when the system is under maintenance
+             * Manually define, when the system is under maintenance
              *
              * @var bool
              */
