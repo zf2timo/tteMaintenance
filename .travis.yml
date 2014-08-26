@@ -13,7 +13,7 @@ before_script:
   - composer update --prefer-source -v --dev
 
 script: 
-  - ./vendor/bin/phpunit --bootstrap=./tests/bootstrap.php
+  - ./vendor/bin/phpunit --bootstrap=tests/bootstrap.php
   - ./vendor/bin/phpcs -n --standard=PSR2 ./src ./tests
 
 after_script:
