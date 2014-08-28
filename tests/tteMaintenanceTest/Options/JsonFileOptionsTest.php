@@ -1,8 +1,6 @@
 <?php
 
-
 namespace tteMaintenanceTest\Options;
-
 
 use tteMaintenance\Options\JsonFileOptions;
 
@@ -78,4 +76,3 @@ class JsonFileOptionsTest extends \PHPUnit_Framework_TestCase
         $this->options = null;
     }
 }
- 

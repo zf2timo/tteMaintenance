@@ -1,8 +1,6 @@
 <?php
 
-
 namespace tteMaintenance\Options;
-
 
 use Zend\Stdlib\AbstractOptions;
 
@@ -28,4 +26,4 @@ class ManualOptions extends AbstractOptions implements ManualOptionsInterface
     {
         $this->isMaintenance = (bool)$isMaintenance;
     }
-} 
+}

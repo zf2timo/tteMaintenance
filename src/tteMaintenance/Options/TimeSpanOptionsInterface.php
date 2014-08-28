@@ -1,4 +1,5 @@
 <?php
+
 namespace tteMaintenance\Options;
 
 interface TimeSpanOptionsInterface

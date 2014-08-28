@@ -1,8 +1,6 @@
 <?php
 
-
 namespace tteMaintenance\Provider;
-
 
 use tteMaintenance\Exception\FileNotException;
 use tteMaintenance\Exception\InvalidFileException;
@@ -32,7 +30,8 @@ class JsonFile extends AbstractProvider
     public function isMaintenance()
     {
         if (!is_readable($this->getOptions()->getTargetFile()) ||
-            !is_file($this->getOptions()->getTargetFile())) {
+            !is_file($this->getOptions()->getTargetFile())
+        ) {
             if ($this->getOptions()->getStrictMode()) {
                 throw new FileNotException(sprintf(
                     'The file "%s" wasn\'t found or isn\'t readable.',
@@ -48,7 +47,8 @@ class JsonFile extends AbstractProvider
 
         if ($arrayContent === false ||
             count($arrayContent) == 0 ||
-            !isset($arrayContent[$this->getOptions()->getPropertyName()])) {
+            !isset($arrayContent[$this->getOptions()->getPropertyName()])
+        ) {
             if ($this->getOptions()->getStrictMode()) {
                 throw new InvalidFileException(sprintf(
                     'Content wasn\'t valid Json or Property "%s" isn\'t set.',

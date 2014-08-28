@@ -1,8 +1,6 @@
 <?php
 
-
 namespace tteMaintenance\Options;
-
 
 class JsonFileOptionsFactory extends AbstractOptionFactory
 {

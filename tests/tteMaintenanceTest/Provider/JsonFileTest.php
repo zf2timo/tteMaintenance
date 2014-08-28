@@ -1,8 +1,6 @@
 <?php
 
-
 namespace tteMaintenanceTest\Provider;
-
 
 use tteMaintenance\Options\JsonFileOptions;
 use tteMaintenance\Provider\JsonFile;
@@ -153,4 +151,3 @@ class JsonFileTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($newOptions, $provider->getOptions());
     }
 }
- 

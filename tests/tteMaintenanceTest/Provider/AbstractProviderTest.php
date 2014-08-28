@@ -1,16 +1,13 @@
 <?php
 
-
 namespace tteMaintenanceTest\Provider;
-
 
 use tteMaintenance\Provider\AbstractProvider;
 use Zend\Http\PhpEnvironment\Response;
 use Zend\Mvc\MvcEvent;
-use Zend\Server\Reflection\ReflectionMethod;
-use Zend\Stdlib\CallbackHandler;
 
-class AbstractProviderTest extends \PHPUnit_Framework_TestCase {
+class AbstractProviderTest extends \PHPUnit_Framework_TestCase
+{
 
     /**
      * @var \PHPUnit_Framework_MockObject_MockObject|AbstractProvider
@@ -65,8 +62,8 @@ class AbstractProviderTest extends \PHPUnit_Framework_TestCase {
 
         $slMock = $this->getMock('Zend\ServiceManager\ServiceLocatorInterface');
         $slMock->expects($this->once())
-                ->method('get')
-                ->will($this->returnValue($optionsMock));
+            ->method('get')
+            ->will($this->returnValue($optionsMock));
 
         $appMock = $this->getMock('Zend\Mvc\ApplicationInterface');
         $appMock->expects($this->once())
@@ -154,13 +151,14 @@ class AbstractProviderTest extends \PHPUnit_Framework_TestCase {
             ->method('assemble')
             ->will($this->returnValue('http://example.com/maintenance.html'));
 
-
         $slMock = $this->getMock('Zend\ServiceManager\ServiceLocatorInterface');
         $slMock->expects($this->exactly(2))
             ->method('get')
-            ->will($this->returnValueMap(array(
-                array('tteMaintenance\Options\ModuleOptionsFactory', $optionsMock),
-                array('httpRouter', $httpRouterMock))
+            ->will($this->returnValueMap(
+                array(
+                    array('tteMaintenance\Options\ModuleOptionsFactory', $optionsMock),
+                    array('httpRouter', $httpRouterMock)
+                )
             ));
 
         $appMock = $this->getMock('Zend\Mvc\ApplicationInterface');
@@ -192,4 +190,3 @@ class AbstractProviderTest extends \PHPUnit_Framework_TestCase {
         $this->event = $this->getMock('\Zend\Mvc\MvcEvent');
     }
 }
- 

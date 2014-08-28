@@ -53,4 +53,3 @@ class TimeSpanTest extends \PHPUnit_Framework_TestCase
         return new \DateTime('2014-08-15 23:00:00');
     }
 }
- 

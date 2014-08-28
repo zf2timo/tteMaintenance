@@ -1,8 +1,6 @@
 <?php
 
-
 namespace tteMaintenanceTest\Provider;
-
 
 use tteMaintenance\Options\ManualOptions;
 use tteMaintenance\Provider\Manual;
@@ -95,4 +93,3 @@ class ManualTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(true, $provider->getIsMaintenance());
     }
 }
- 

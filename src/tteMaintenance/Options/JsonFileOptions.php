@@ -1,8 +1,6 @@
 <?php
 
-
 namespace tteMaintenance\Options;
-
 
 use Zend\Stdlib\AbstractOptions;
 
@@ -70,5 +68,4 @@ class JsonFileOptions extends AbstractOptions implements JsonFileOptionsInterfac
     {
         return $this->strictMode;
     }
-
 }

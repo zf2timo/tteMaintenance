@@ -1,8 +1,6 @@
 <?php
 
-
 namespace tteMaintenanceTest\Options;
-
 
 use tteMaintenance\Options\AbstractOptionFactory;
 
@@ -64,7 +62,4 @@ class AbstractOptionFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $this->optionsFactory = null;
     }
-
-
 }
- 

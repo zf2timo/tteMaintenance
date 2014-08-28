@@ -1,8 +1,6 @@
 <?php
 
-
 namespace tteMaintenance\Options;
-
 
 use Zend\Stdlib\AbstractOptions;
 
@@ -49,6 +47,4 @@ class TimeSpanOptions extends AbstractOptions implements TimeSpanOptionsInterfac
     {
         return $this->end;
     }
-
-
-} 
+}

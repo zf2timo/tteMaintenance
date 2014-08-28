@@ -1,14 +1,13 @@
 <?php
 
-
 namespace tteMaintenance\Provider;
-
 
 use tteMaintenance\Options\TimeSpanOptionsInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class TimeSpanFactory implements FactoryInterface {
+class TimeSpanFactory implements FactoryInterface
+{
 
     /**
      * Create service
