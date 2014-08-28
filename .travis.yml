@@ -14,6 +14,11 @@ before_script:
 
 script: 
   - phpunit --bootstrap=tests/bootstrap.php
+  - ./vendor/bin/phpcs -n --standard=PSR2 ./src ./tests
+
+after_script:
+  - php vendor/bin/phpcov.php --merge --clover build/logs/clover.xml --whitelist library build/coverage
+  - php vendor/bin/coveralls
 
 matrix:
   fast_finish: true
