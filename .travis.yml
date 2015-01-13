@@ -10,10 +10,10 @@ php:
 before_script:
   - mkdir -p build/coverage
   - composer self-update
-  - composer update --prefer-source -v --dev
+  - composer update --prefer-source
 
 script: 
-  - phpunit --bootstrap=tests/bootstrap.php
+  - ./vendor/bin/phpunit --bootstrap=tests/bootstrap.php
   - ./vendor/bin/phpcs -n --standard=PSR2 ./src ./tests
 
 after_script:
