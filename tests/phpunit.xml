@@ -1,0 +1,28 @@
+<phpunit bootstrap="./bootstrap.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         verbose="true"
+         stopOnFailure="false"
+         processIsolation="false"
+         backupGlobals="false"
+         syntaxCheck="true"
+>
+    <testsuite name="tteMaintenance Test Suite">
+        <directory>./tteMaintenanceTest</directory>
+    </testsuite>
+    
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">../src</directory>
+        </whitelist>
+    </filter>
+    
+    <logging>
+        <log type="coverage-text" target="php://stdout"/>
+        <log type="coverage-clover" target="../build/logs/clover.xml"/>
+        <log type="coverage-html" target="../build/logs/unittest.html"/>
+    </logging>
+</phpunit>

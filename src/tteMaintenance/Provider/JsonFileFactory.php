@@ -1,10 +1,7 @@
 <?php
 
-
 namespace tteMaintenance\Provider;
 
-
-use tteMaintenance\Options\JsonFileOptions;
 use tteMaintenance\Options\JsonFileOptionsInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

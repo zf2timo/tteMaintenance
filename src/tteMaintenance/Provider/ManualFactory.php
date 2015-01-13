@@ -1,8 +1,6 @@
 <?php
 
-
 namespace tteMaintenance\Provider;
-
 
 use tteMaintenance\Options\ManualOptionsInterface;
 use Zend\ServiceManager\FactoryInterface;
@@ -22,6 +20,6 @@ class ManualFactory implements FactoryInterface
         /** @var ManualOptionsInterface $manualOptions */
         $manualOptions = $serviceLocator->get('tteMaintenance\Options\ManualOptionsFactory');
 
-       return new Manual($manualOptions->getIsMaintenance());
+        return new Manual($manualOptions->getIsMaintenance());
     }
 }

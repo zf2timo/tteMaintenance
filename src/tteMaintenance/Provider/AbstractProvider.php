@@ -1,5 +1,6 @@
 <?php
 
+
 namespace tteMaintenance\Provider;
 
 use tteMaintenance\Options\ModuleOptionsInterface;
@@ -43,7 +44,6 @@ abstract class AbstractProvider extends AbstractListenerAggregate implements Mai
         /** @var ModuleOptionsInterface $moduleOptions */
         $moduleOptions = $serviceLocator->get('tteMaintenance\Options\ModuleOptionsFactory');
 
-
         if ($moduleOptions->getRedirectType() == self::REDIRECT_TYPE_FILE) {
             $redirectLink = $moduleOptions->getRedirect();
         } elseif ($moduleOptions->getRedirectType() == self::REDIRECT_TYPE_ROUTE) {
@@ -65,5 +65,5 @@ abstract class AbstractProvider extends AbstractListenerAggregate implements Mai
     /**
      * @return bool
      */
-    abstract public  function isMaintenance();
+    abstract public function isMaintenance();
 }

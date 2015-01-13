@@ -3,7 +3,6 @@
 
 namespace tteMaintenance\Options;
 
-
 interface JsonFileOptionsInterface
 {
     public function getTargetFile();

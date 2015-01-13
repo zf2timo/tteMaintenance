@@ -1,8 +1,6 @@
 <?php
 
-
 namespace tteMaintenance\Options;
-
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -33,4 +31,4 @@ abstract class AbstractOptionFactory implements FactoryInterface
      * @return string
      */
     abstract public function getConfigKey();
-} 
+}

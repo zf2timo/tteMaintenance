@@ -1,11 +1,6 @@
 <?php
 
-
 namespace tteMaintenance\Provider;
-use tteMaintenance\Exception\InvalidArgumentException;
-use Zend\EventManager\AbstractListenerAggregate;
-use Zend\EventManager\EventManagerInterface;
-use Zend\Mvc\MvcEvent;
 
 /**
  * Class TimeSpan
@@ -14,36 +9,31 @@ use Zend\Mvc\MvcEvent;
 class TimeSpan extends AbstractProvider
 {
     /**
-     * @var Int
+     * @var \DateTime
      */
     protected $start;
 
     /**
-     * @var Int
+     * @var \DateTime
      */
     protected $end;
 
-    public function __construct($start, $end)
+    /**
+     * @var \DateTime
+     */
+    protected $current;
+
+    /**
+     * @param \DateTime $start
+     * @param \DateTime $end
+     * @param \DateTime $current
+     */
+    public function __construct(\DateTime $start, \DateTime $end, \DateTime $current)
     {
-        if ((int)$start < 0 || (int)$start > 23) {
-            throw new InvalidArgumentException(sprintf(
-                'Parameter $start wasn\'t valid. Expected integer between 0 and 23. Got %s(%s)',
-                (int)$start,
-                gettype($start)
-            ));
-        }
-        if ((int)$end < 0 || (int)$end > 23) {
-            throw new InvalidArgumentException(sprintf(
-                'Parameter $end wasn\'t valid. Expected integer between 0 and 23. Got %s(%s)',
-                (int)$end,
-                gettype($end)
-            ));
-        }
-
-        $this->setStart($start);
-        $this->setEnd($end);
+        $this->current = $current;
+        $this->start = $start;
+        $this->end = $end;
     }
-
 
     /**
      * Defines a Maintenance form 21 til 5 o' clock
@@ -52,23 +42,16 @@ class TimeSpan extends AbstractProvider
      */
     public function isMaintenance()
     {
-        $now = new \DateTime('now');
-        if ($now->format('H') >= $this->getStart() || $now->format('H') <= $this->getEnd()) {
+        if ($this->getCurrent()->format('H') >= $this->getStart()->format('H') &&
+            $this->getCurrent()->format('H') <= $this->getEnd()->format('H')
+        ) {
             return true;
         }
         return false;
     }
 
     /**
-     * @param Int $end
-     */
-    public function setEnd($end)
-    {
-        $this->end = $end;
-    }
-
-    /**
-     * @return Int
+     * @return \DateTime
      */
     public function getEnd()
     {
@@ -76,18 +59,18 @@ class TimeSpan extends AbstractProvider
     }
 
     /**
-     * @param Int $start
-     */
-    public function setStart($start)
-    {
-        $this->start = $start;
-    }
-
-    /**
-     * @return Int
+     * @return \DateTime
      */
     public function getStart()
     {
         return $this->start;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCurrent()
+    {
+        return $this->current;
     }
 }

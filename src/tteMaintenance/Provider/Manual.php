@@ -1,13 +1,11 @@
 <?php
 
-
 namespace tteMaintenance\Provider;
-
 
 use tteMaintenance\Exception\InvalidArgumentException;
 use tteMaintenance\Options\ManualOptionsInterface;
 
-class Manual extends  AbstractProvider
+class Manual extends AbstractProvider
 {
 
     /**
