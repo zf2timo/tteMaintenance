@@ -13,7 +13,7 @@ before_script:
   - composer update --prefer-source -v --dev
 
 script: 
-  - phpunit -c tests/phpunit.xml
+  - phpunit
   - ./vendor/bin/phpcs -n --standard=PSR2 ./src ./tests
 
 after_script:
