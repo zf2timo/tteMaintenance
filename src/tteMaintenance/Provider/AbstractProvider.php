@@ -60,9 +60,4 @@ abstract class AbstractProvider extends AbstractListenerAggregate implements Mai
         // @todo at the moment the module only supports HTTP-Request
         return;
     }
-
-    /**
-     * @return bool
-     */
-    abstract public function isMaintenance();
 }
