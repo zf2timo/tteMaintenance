@@ -10,7 +10,7 @@ php:
 before_script:
   - mkdir -p build/coverage
   - composer self-update
-  - composer update --prefer-source -v --dev
+  - composer update --prefer-source
 
 script: 
   - phpunit
