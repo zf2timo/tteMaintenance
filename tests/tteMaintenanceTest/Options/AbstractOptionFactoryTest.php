@@ -50,7 +50,10 @@ class AbstractOptionFactoryTest extends \PHPUnit_Framework_TestCase
             ->method('getConfigKey')
             ->will($this->returnValue('jsonFile'));
 
-        $this->assertInstanceOf('tteMaintenance\Options\JsonFileOptions', $this->optionsFactory->createService($slMock));
+        $this->assertInstanceOf(
+            'tteMaintenance\Options\JsonFileOptions', 
+            $this->optionsFactory->createService($slMock)
+        );
     }
 
     protected function setUp()
