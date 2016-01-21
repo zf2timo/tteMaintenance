@@ -8,7 +8,7 @@
     ],
     "homepage": "https://github.com/zf2timo/tteMaintenance",
     "require": {
-        "php": "^5.5",
+        "php": "^5.5 || ^7.0",
         "zendframework/zendframework": "^2.4"
     },
     "autoload": {
