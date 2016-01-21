@@ -8,8 +8,8 @@
     ],
     "homepage": "https://github.com/zf2timo/tteMaintenance",
     "require": {
-        "php": ">=5.3.3",
-        "zendframework/zendframework": "~2.2"
+        "php": "^5.5",
+        "zendframework/zendframework": "^2.4"
     },
     "autoload": {
         "psr-0": {
@@ -22,7 +22,7 @@
     "require-dev": {
         "phpunit/phpunit": "4.*",
         "squizlabs/php_codesniffer": "2.*",
-        "satooshi/php-coveralls": "dev-master",
+        "satooshi/php-coveralls": "^1.0",
         "phpunit/phpcov": "2.0.*"
     }
 }
